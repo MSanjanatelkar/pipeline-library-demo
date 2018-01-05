@@ -1,23 +1,14 @@
-!/usr/bin/env groovy
+#!/usr/bin/env groovy
 
 def call(String test = 'false') {
-  echo "received test=${test}"
-
+  echo "test=${test}"
   if (test.equalsIgnoreCase('false')) {
-    echo "running for test false"
-    stages {
-      stage ('install') {
-        steps {
-          withMaven(maven : 'maven_3_5_0') {
-          sh 'mvn clean install -Dskiptest'
-          }
-        }
-      }
+    mavenJob('maven') {
+      goals('clean install -DskipTests')
     }
   } else{
-    echo "running for test true"
-    maven {
-      sh 'mvn clean install'
+    mavenJob('maven') {
+      goals('clean install')
     }
   }
 }
