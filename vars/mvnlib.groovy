@@ -5,8 +5,8 @@ def call(String test = 'false') {
   if (test.equalsIgnoreCase('false')) {
       sh "mvn clean install -DskipTests=true"
     }
-  } else{
-    sh "mvn clean install -DskipTests=true"
+  
+ else {
+    sh "mvn clean install"
     }
-  }
 }
