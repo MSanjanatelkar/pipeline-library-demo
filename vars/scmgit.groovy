@@ -1,5 +1,8 @@
 #!/usr/bin/env groovy
 
 def checkOutFrom(giturl) {
-  git url: "${repo}"
-}
+  node{
+    stage (connecting to scm)
+    {   checkout scm
+    }
+ }
