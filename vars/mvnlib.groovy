@@ -3,11 +3,11 @@
 def call(String test = 'false') {
   echo "test=${test}"
   if (test.equalsIgnoreCase('false')) {
-    mavenJob('maven') {
+    maven('maven') {
       goals('clean install -DskipTests')
     }
   } else{
-    mavenJob('maven') {
+    maven('maven') {
       goals('clean install')
     }
   }
