@@ -1,11 +1,5 @@
-def call(String username, password, giturl) {
-	  withCredentials([usernamePassword(
-	        usernameVariable: ${username},
-	        passwordVariable: ${password}
-	    )])
-          { 
+def call(String giturl) { 
 		echo “cloning from GitHub”
 		sh ‘git clone ${giturl}’
-	 }
 }
 
